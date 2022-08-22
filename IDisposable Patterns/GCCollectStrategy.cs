@@ -1,29 +1,29 @@
-﻿// //-----------------------------------------------------------------------------
-// // <copyright file="GCCollectStrategy.cs" company="DCOM Engineering, LLC">
-// //     Copyright (c) DCOM Engineering, LLC.  All rights reserved.
-// // </copyright>
-// //-----------------------------------------------------------------------------
-namespace NET_GC
+﻿// -----------------------------------------------------------------------
+// <copyright file="GCCollectStrategy.cs" company="DCOM Engineering, LLC">
+//     Copyright (c) DCOM Engineering, LLC. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
+
+namespace NET_GC;
+
+using System;
+using System.Collections.Generic;
+
+public class GCCollectStrategy : Strategy
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Linq;
-
-    public class GCCollectStrategy : Strategy
+    public override IEnumerable<DebugAllocationData> Run()
     {
-        public override IEnumerable<DebugAllocationData> Run()
-        {
-            long beforeGC = Environment.WorkingSet;
+        long beforeGC = Environment.WorkingSet;
 
-            yield return new DebugAllocationData(beforeGC, beforeGC, beforeGC);
+        yield return new DebugAllocationData(beforeGC, beforeGC, beforeGC);
 
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
+#pragma warning disable S1215 // "GC.Collect" should not be called.
 
-            long afterGC = Environment.WorkingSet;
+        GC.Collect();
+        GC.WaitForPendingFinalizers();
 
-            yield return new DebugAllocationData(beforeGC, beforeGC, afterGC);
-        }
+        long afterGC = Environment.WorkingSet;
+
+        yield return new DebugAllocationData(beforeGC, beforeGC, afterGC);
     }
 }

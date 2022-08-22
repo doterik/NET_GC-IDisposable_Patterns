@@ -1,44 +1,42 @@
-﻿namespace NET_GC
+﻿// ---------------------------------------------------------------------
+// <copyright file="UnmanagedBitmap.cs" company="DCOM Engineering, LLC">
+//     Copyright (c) DCOM Engineering, LLC. All rights reserved.
+// </copyright>
+// ---------------------------------------------------------------------
+
+namespace NET_GC;
+
+using System;
+using System.Drawing;
+
+public class UnmanagedBitmap : IDisposable
 {
-    using System;
-    using System.Drawing;
-
-    public class UnmanagedBitmap : IDisposable
+    private readonly Bitmap image;
+    private readonly GdiBitmapSafeHandle handle;
+    public UnmanagedBitmap(string file)
     {
-        private bool disposed;
-        private readonly GdiBitmapSafeHandle handle;
-        private readonly Bitmap image;
+        image = (Bitmap)Image.FromFile(file);
+        handle = new GdiBitmapSafeHandle(image.GetHbitmap());
+    }
 
-        public UnmanagedBitmap(string file)
+    public void Dispose()
+    {
+        Dispose(disposing: true);
+        GC.SuppressFinalize(this);
+    }
+
+    private bool disposed;
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposed) return;
+
+        if (disposing)
         {
-            image = (Bitmap) Image.FromFile(file);
-            handle = new GdiBitmapSafeHandle(image.GetHbitmap());
+            image.Dispose();
+
+            if (!handle.IsInvalid) handle.Dispose();
         }
 
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (disposed)
-            {
-                return;
-            }
-
-            if (disposing)
-            {
-                image.Dispose();
-
-                if (!handle.IsInvalid)
-                {
-                    handle.Dispose();
-                }
-            }
-
-            disposed = true;
-        }
+        disposed = true;
     }
 }

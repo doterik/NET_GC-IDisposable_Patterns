@@ -1,37 +1,38 @@
-﻿namespace NET_GC.Dispose_Pattern_with_SafeHandle
+﻿// -----------------------------------------------------------------
+// <copyright file="BitmapImage.cs" company="DCOM Engineering, LLC">
+//     Copyright (c) DCOM Engineering, LLC. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------
+
+namespace NET_GC.Dispose_Pattern_with_SafeHandle;
+
+using System;
+using System.Drawing;
+
+public class BitmapImage : IDisposable
 {
-    using System;
-    using System.Drawing;
-
-    public class BitmapImage : IDisposable
+    private readonly Bitmap image;
+    public BitmapImage(Bitmap image)
     {
-        private bool disposed;
-        private readonly Bitmap image;
+        this.image = image;
+    }
 
-        public BitmapImage(Bitmap image)
+    public void Dispose()
+    {
+        Dispose(disposing: true);
+        GC.SuppressFinalize(this);
+    }
+
+    private bool disposed;
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposed) return;
+
+        if (disposing)
         {
-            this.image = image;
+            image.Dispose();
         }
 
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (disposed)
-            {
-                return;
-            }
-
-            if (disposing)
-            {
-                image.Dispose();
-            }
-
-            disposed = true;
-        }
+        disposed = true;
     }
 }

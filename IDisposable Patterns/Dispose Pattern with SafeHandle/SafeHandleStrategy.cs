@@ -1,12 +1,18 @@
-﻿namespace NET_GC.Dispose_Pattern_with_SafeHandle
-{
-    using System.Collections.Generic;
+﻿// ------------------------------------------------------------------------
+// <copyright file="SafeHandleStrategy.cs" company="DCOM Engineering, LLC">
+//     Copyright (c) DCOM Engineering, LLC. All rights reserved.
+// </copyright>
+// ------------------------------------------------------------------------
 
-    public class SafeHandleStrategy : FileStrategy
+namespace NET_GC.Dispose_Pattern_with_SafeHandle;
+
+using System.Collections.Generic;
+
+public class SafeHandleStrategy : FileStrategy
+{
+    public override IEnumerable<DebugAllocationData> Run()
     {
-        public override IEnumerable<DebugAllocationData> Run()
-        {
-            throw new System.NotImplementedException();
-        }
+#pragma warning disable MA0025  // Implement the functionality instead of throwing NotImplementedException.
+        throw new System.NotImplementedException();
     }
 }

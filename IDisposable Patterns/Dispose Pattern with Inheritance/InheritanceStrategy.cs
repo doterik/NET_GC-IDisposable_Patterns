@@ -1,32 +1,32 @@
-﻿// //-----------------------------------------------------------------------------
-// // <copyright file="InheritanceStrategy.cs" company="DCOM Engineering, LLC">
-// //     Copyright (c) DCOM Engineering, LLC.  All rights reserved.
-// // </copyright>
-// //-----------------------------------------------------------------------------
-namespace NET_GC.Dispose_Pattern_with_Inheritance
+﻿// -------------------------------------------------------------------------
+// <copyright file="InheritanceStrategy.cs" company="DCOM Engineering, LLC">
+//     Copyright (c) DCOM Engineering, LLC. All rights reserved.
+// </copyright>
+// -------------------------------------------------------------------------
+
+namespace NET_GC.Dispose_Pattern_with_Inheritance;
+
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+
+public class InheritanceStrategy : FileStrategy
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Drawing;
-
-    public class InheritanceStrategy : FileStrategy
+    public override IEnumerable<DebugAllocationData> Run()
     {
-        public override IEnumerable<DebugAllocationData> Run()
+        for (int i = 0; i < 10; i++)
         {
-            for (int i = 0; i < 10; i++)
-            {
-                long beforeAlloc = Environment.WorkingSet;
-                
-                BitmapImage image = new BitmapImage((Bitmap)Image.FromFile(FilePath));
+            long beforeAlloc = Environment.WorkingSet;
 
-                long afterAlloc = Environment.WorkingSet;
+            BitmapImage image = new((Bitmap)Image.FromFile(FilePath));
 
-                image.Dispose();
+            long afterAlloc = Environment.WorkingSet;
 
-                long afterDispose = Environment.WorkingSet;
+            image.Dispose();
 
-                yield return new DebugAllocationData(beforeAlloc, afterAlloc, afterDispose);
-            }
+            long afterDispose = Environment.WorkingSet;
+
+            yield return new DebugAllocationData(beforeAlloc, afterAlloc, afterDispose);
         }
     }
 }
