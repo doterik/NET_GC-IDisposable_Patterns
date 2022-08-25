@@ -29,10 +29,9 @@ public class MemoryLeakStrategy : FileStrategy
         Images.Clear();
 
         Console.ForegroundColor = count > 0 ? ConsoleColor.Green : ConsoleColor.Red;
-        Console.Write(count);
+        Console.Write($"{Environment.NewLine}{count}");
         Console.ForegroundColor = ConsoleColor.Gray;
-        Console.WriteLine(" references to BitmapImage removed.");
-        Console.WriteLine();
+        Console.WriteLine($" references to BitmapImage removed.{Environment.NewLine}");
     }
 
     public override IEnumerable<DebugAllocationData> Run()

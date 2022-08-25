@@ -10,19 +10,19 @@
     <Company>DCOM Engineering, LLC</Company>
     <Authors>DCOM Engineering, LLC</Authors>
     <Copyright>Copyright ©  2018  DCOM Engineering, LLC.</Copyright>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <AssemblyVersion>1.1.1.0</AssemblyVersion>
     
     <PackageProjectUrl>https://youtu.be/e0G5X3bu6hY</PackageProjectUrl>
     <RepositoryUrl>https://1drv.ms/u/s!Agyk41TbkFnXgfZcKsngxcO_ECpFzw</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageTags>#dotnet;#csharp;#dcomengineering</PackageTags>
+    <PackageTags>dotnet;csharp;dcomengineering</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Include="Sample.tif"><CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory></Content>
-
     <None Include="..\README.md"><Pack>True</Pack><PackagePath>\</PackagePath></None>
-    
+
+    <PackageReference Include="ConsoleMenu.Light" Version="0.1.4" />
     <PackageReference Include="System.Drawing.Common" Version="7.0.0-preview.7.22375.6" />
   </ItemGroup>
 

@@ -8,12 +8,14 @@ namespace NET_GC;
 
 public static class Screen
 {
-    public static void Print(IEnumerable<DebugAllocationData> data)
+    public static void Print(IEnumerable<DebugAllocationData>? data)
     {
+        if (data is null) return;
+
         // int cursorLeft = Console.CursorLeft, cursorTop = Console.CursorTop;
 
         ConsoleColor oldFgColor = Console.ForegroundColor;
-        Console.WriteLine($"Before Allocation (Bytes)    After Allocation (Bytes)    After Dispose (Bytes){Environment.NewLine}");
+        Console.WriteLine($"{Environment.NewLine}Before Allocation (Bytes)    After Allocation (Bytes)    After Dispose (Bytes){Environment.NewLine}");
 
         DebugAllocationData? previousData = null;
 
