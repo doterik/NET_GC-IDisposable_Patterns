@@ -1,17 +1,20 @@
-﻿// -------------------------------------------------------------
+﻿global using System.Diagnostics;
+global using System.Drawing;
+global using System.Runtime.InteropServices;
+global using System.Runtime.Versioning;
+global using Microsoft.Win32.SafeHandles;
+global using NET_GC.Basic_Dispose_Pattern;
+global using NET_GC.Dispose_Pattern_with_Finalizer;
+global using NET_GC.Dispose_Pattern_with_Inheritance;
+global using NET_GC.Memory_Leak;
+
+// -------------------------------------------------------------
 // <copyright file="Program.cs" company="DCOM Engineering, LLC">
 //     Copyright (c) DCOM Engineering, LLC. All rights reserved.
 // </copyright>
 // -------------------------------------------------------------
 
 namespace NET_GC;
-
-using System;
-using System.Collections.Generic;
-using Basic_Dispose_Pattern;
-using Dispose_Pattern_with_Finalizer;
-using Dispose_Pattern_with_Inheritance;
-using Memory_Leak;
 
 #pragma warning disable MA0051  // Method is too long.
 #pragma warning disable S2190   // Recursion should not be infinite.

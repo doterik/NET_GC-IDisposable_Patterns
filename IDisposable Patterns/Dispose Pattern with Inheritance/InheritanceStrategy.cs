@@ -6,10 +6,6 @@
 
 namespace NET_GC.Dispose_Pattern_with_Inheritance;
 
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-
 public class InheritanceStrategy : FileStrategy
 {
     public override IEnumerable<DebugAllocationData> Run()

@@ -6,9 +6,6 @@
 
 namespace NET_GC;
 
-using System;
-using System.Drawing;
-
 public class UnmanagedBitmap : IDisposable
 {
     private readonly Bitmap image;

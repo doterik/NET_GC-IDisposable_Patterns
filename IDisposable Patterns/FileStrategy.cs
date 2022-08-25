@@ -6,9 +6,6 @@
 
 namespace NET_GC;
 
-using System;
-using System.IO;
-
 public abstract class FileStrategy : Strategy
 {
     public string FilePath { get; } = Path.Combine(Environment.CurrentDirectory, "Sample.tif");

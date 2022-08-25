@@ -6,10 +6,6 @@
 
 namespace NET_GC.Basic_Dispose_Pattern;
 
-using System;
-using System.Diagnostics;
-using System.Drawing;
-
 public class BitmapImage : IDisposable
 {
     private readonly Bitmap image;

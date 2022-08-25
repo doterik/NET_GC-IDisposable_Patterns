@@ -6,10 +6,6 @@
 
 namespace NET_GC.Memory_Leak;
 
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-
 /// <summary>Demonstrates the basic IDisposable pattern, in its simplest form.</summary>
 /// <remarks>
 /// <para>

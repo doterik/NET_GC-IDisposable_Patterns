@@ -6,10 +6,6 @@
 
 namespace NET_GC;
 
-using System;
-using System.Runtime.InteropServices;
-using Microsoft.Win32.SafeHandles;
-
 public class GdiBitmapSafeHandle : SafeHandleZeroOrMinusOneIsInvalid
 {
     public GdiBitmapSafeHandle(IntPtr handle) : base(ownsHandle: true)

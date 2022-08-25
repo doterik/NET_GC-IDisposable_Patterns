@@ -6,9 +6,6 @@
 
 namespace NET_GC.Dispose_Pattern_with_SafeHandle;
 
-using System;
-using System.Drawing;
-
 public class BitmapImage : IDisposable
 {
     private readonly Bitmap image;

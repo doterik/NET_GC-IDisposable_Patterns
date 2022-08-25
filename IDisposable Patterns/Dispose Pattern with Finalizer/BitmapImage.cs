@@ -6,11 +6,6 @@
 
 namespace NET_GC.Dispose_Pattern_with_Finalizer;
 
-using System;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Runtime.Versioning;
-
 public class BitmapImage : IDisposable
 {
     private readonly IntPtr image;

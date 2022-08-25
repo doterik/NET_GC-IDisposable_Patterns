@@ -4,8 +4,9 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
 
-    <Title>NET GC - IDisposable Patterns</Title>
+    <Title>.NET Garbage Collector (GC) Demo.</Title>
     <Company>DCOM Engineering, LLC</Company>
     <Authors>DCOM Engineering, LLC</Authors>
     <Copyright>Copyright ©  2018  DCOM Engineering, LLC.</Copyright>

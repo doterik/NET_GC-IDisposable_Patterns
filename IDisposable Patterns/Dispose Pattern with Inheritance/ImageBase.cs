@@ -6,10 +6,6 @@
 
 namespace NET_GC.Dispose_Pattern_with_Inheritance;
 
-using System;
-using System.Diagnostics;
-using System.Drawing;
-
 public abstract class ImageBase : IDisposable
 {
 #pragma warning disable SA1401 // Fields should be private

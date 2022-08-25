@@ -6,9 +6,6 @@
 
 namespace NET_GC;
 
-using System;
-using System.Collections.Generic;
-
 public class GCCollectStrategy : Strategy
 {
     public override IEnumerable<DebugAllocationData> Run()

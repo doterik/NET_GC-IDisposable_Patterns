@@ -6,9 +6,6 @@
 
 namespace NET_GC;
 
-using System;
-using System.Collections.Generic;
-
 public static class Screen
 {
     public static void Print(IEnumerable<DebugAllocationData> data)

@@ -6,9 +6,6 @@
 
 namespace NET_GC.Dispose_Pattern_with_Inheritance;
 
-using System.Diagnostics;
-using System.Drawing;
-
 public class BitmapImage : ImageBase
 {
     public BitmapImage(Bitmap image) : base(image) { }

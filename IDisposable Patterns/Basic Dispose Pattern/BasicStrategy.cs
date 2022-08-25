@@ -6,10 +6,6 @@
 
 namespace NET_GC.Basic_Dispose_Pattern;
 
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-
 /// <summary>Demonstrates the basic IDisposable pattern, in its simplest form.</summary>
 /// <remarks>
 /// <para>
